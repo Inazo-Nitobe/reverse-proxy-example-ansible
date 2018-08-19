@@ -1,5 +1,41 @@
 - hosts: all
   sudo: yes
   tasks:
-    - name: test
-      shell: echo hello
+    - name: install yum-utils
+      yum: name=yum-utils
+
+    - name: install yum-config-manager
+      shell: yum-config-manager --add-repo https://openresty.org/package/centos/openresty.repo
+
+    - name: install openresty
+      yum: name=openresty
+
+    - name: disable auto launch of openresty
+      service: name=openresty enabled=false
+
+    - name: install openresty-resty
+      yum: name=openresty-resty
+
+    - name: install php-fpm
+      yum: name=php-fpm
+
+    - name: setup php-fpm conf.
+      copy: src=configs/common/php-fpm/www.conf dest=/etc/php-fpm.d/
+
+    - name: enable auto launch of php-fpm
+      service: name=php-fpm state=started enabled=true
+
+    - name: create a nginx working directories
+      file: path=/root/work/logs state=directory
+
+    - name: create a nginx symlink to conf dir.
+      file: src=/vagrant_data/conf dest=/root/work/conf state=link
+
+    - name: setup bashrc to launch nginx.
+      copy: src=configs/common/openresty/.bashrc dest=/root/
+
+- hosts: 192.168.33.60
+  sudo: yes
+  tasks:
+    - name: setup hosts file on proxy server.
+      copy: src=configs/proxy/hosts dest=/etc/hosts
