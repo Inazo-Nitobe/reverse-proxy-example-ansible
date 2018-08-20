@@ -3,7 +3,7 @@ This document describes how to setup our development environment.
 1. setup source code on your vagrant synced folders.
 ```
 yourhost$ cd ./vagrant
-yourhost$ git clone git@github-repo-taka:Inazo-Nitobe/reverse-proxy-example.gita
+yourhost$ git clone git@github-repo-taka:Inazo-Nitobe/reverse-proxy-example.git
 ```
 
 2. Launch your vagrants.
@@ -26,8 +26,5 @@ vagrant$ sudo yum install openresty
 
 yourhost$ ansible-playbook -i hosts bootstrap.yml 
 ```
-6. Add some resolvers to your hosts file.
-```
-192.168.33.60   mypx.app-visor.com myapi.app-visor.com
-192.168.33.61   mypxd.app-visor.com
-```
+6. Follow a readme above vagrant data directory.
+

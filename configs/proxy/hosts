@@ -1,5 +1,4 @@
-127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 myapi.app-visor.com mypx.app-visor.com
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-192.168.33.60   myapi.app-visor.com mypx.app-visor.com
-192.168.33.61   mypxd1.app-visor.com
-192.168.33.62   mypxd2.app-visor.com
+192.168.33.61   myweb1.app-visor.com
+192.168.33.62   myweb2.app-visor.com

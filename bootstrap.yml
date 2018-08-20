@@ -39,3 +39,22 @@
   tasks:
     - name: setup hosts file on proxy server.
       copy: src=configs/proxy/hosts dest=/etc/hosts
+    - name: specify proxy host name
+      hostname: name=proxy
+
+- hosts: 192.168.33.61
+  sudo: yes
+  tasks:
+    - name: setup hosts file on web1 server.
+      copy: src=configs/web1/hosts dest=/etc/hosts
+    - name: specify web1 host name
+      hostname: name=web1
+
+- hosts: 192.168.33.62
+  sudo: yes
+  tasks:
+    - name: setup hosts file on web2 server.
+      copy: src=configs/web2/hosts dest=/etc/hosts
+    - name: specify web2 host name
+      hostname: name=web2
+
